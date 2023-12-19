@@ -337,7 +337,7 @@ function getWordDescription(text, wordsToHighlight) {
 function showTooltip(content) {
   const tooltip = document.createElement("div");
   tooltip.className = "tooltip";
-  tooltip.textContent = content;
+  tooltip.innerHTML = `<b>${content.name}</b><hr/><i>${content.description}</i><hr/><u>${content.url}</u>`;
   tooltip.style.position = "fixed";
   tooltip.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
   tooltip.style.color = "#fff";
@@ -348,7 +348,7 @@ function showTooltip(content) {
   // Calculate tooltip position relative to the cursor
   const mouseX = window.event.clientX;
   const mouseY = window.event.clientY;
-  const tooltipWidth = 120; // Set tooltip width
+  tooltip.style.width = "auto";
 
   // Position the tooltip to the right of the cursor
   tooltip.style.left = `${mouseX + 15}px`; // Adjust 15px to provide spacing from the cursor
